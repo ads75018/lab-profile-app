@@ -1,6 +1,7 @@
+const mongoose = require('mongoose');
 const { Schema } = require('mongoose');
 
-User.schema = new Schema({
+const userschema = new Schema({
   username: String,
   password: String,
   campus: {
@@ -20,3 +21,7 @@ User.schema = new Schema({
   course: { type: String, enum: ['Web Dev', 'UX/UI', 'Data Analystics'] },
   image: String,
 });
+
+const User = mongoose.model('User', userschema);
+
+module.exports = User;
